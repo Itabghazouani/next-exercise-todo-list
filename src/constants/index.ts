@@ -38,6 +38,13 @@ export const PRIORITIES = [
   "Not Important - Not Urgent",
 ]
 
+export const PRIORITY_ORDER: { [key: string]: number } = {
+  "Important - Urgent": 1,
+  "Important - Not Urgent": 2,
+  "Not Important - Urgent": 3,
+  "Not Important - Not Urgent": 4,
+};
+
 export const PRIORITY_COLORS: Record<string, string> = {
   "Important - Urgent": "bg-red-800",
   "Important - Not Urgent": "bg-red-700",
