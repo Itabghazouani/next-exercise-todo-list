@@ -19,13 +19,19 @@ const AddTask = () => {
       alert("Please enter a task description");
       return;
     }
-    await addTodo({
-      id: uuidv4(),
-      desc: newTaskDesc,
-    });
-    setNewTaskDesc("");
-    setModalOpen(false);
-    router.refresh();
+    try {
+      await addTodo({
+        id: uuidv4(),
+        desc: newTaskDesc,
+      });
+      setNewTaskDesc("");
+      setModalOpen(false);
+      router.refresh();
+
+    } catch (error) {
+      console.error("Failed to add task:", error);
+      alert("Failed to add task. Please try again.");
+    }
   };
 
   return (

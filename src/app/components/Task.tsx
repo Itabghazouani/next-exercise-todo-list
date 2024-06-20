@@ -25,18 +25,29 @@ const Task: FC<TaskProps> = ({ task }) => {
 
   const handleSubmitEditTodo: FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
-    await editTodo({
-      id: editTaskInfo.id,
-      desc: editTaskInfo.desc,
-    });
-    setOpenModalEdit(false);
-    router.refresh();
+    try {
+      await editTodo({
+        id: editTaskInfo.id,
+        desc: editTaskInfo.desc,
+      });
+      setOpenModalEdit(false);
+      router.refresh();
+    } catch (error) {
+      console.error("Failed to edit task:", error);
+      alert("Failed to edit task. Please try again.");
+    }
   };
 
   const handleDeleteTask = async (id: string) => {
-    await deleteTodo(id);
-    setOpenModalDeleted(false);
-    router.refresh();
+    try {
+      await deleteTodo(id);
+      setOpenModalDeleted(false);
+      router.refresh();
+
+    } catch (error) {
+      console.error("Failed to delete task:", error);
+      alert("Failed to delete task. Please try again.");
+    }
   };
 
   return (
