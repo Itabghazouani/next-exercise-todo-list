@@ -2,16 +2,16 @@
   "tasks": [
     {
       "id": "2",
-      "desc": "Run 24km",
-      "category": "Autre",
-      "priority": "Important - Not Urgent",
-      "completed": true
+      "desc": "Run 44km",
+      "category": "Sport",
+      "priority": "Not Important - Urgent",
+      "completed": false
     },
     {
       "id": "7e7b770c-05c6-43ba-91ba-f5870fb9e976",
-      "desc": "Go to the doctor",
-      "category": "Administratif",
-      "priority": "Not Important - Urgent",
+      "desc": "Go to the Med",
+      "category": "Maison",
+      "priority": "Important - Urgent",
       "completed": false
     },
     {

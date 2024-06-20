@@ -1,12 +1,14 @@
 import { ITask } from "@/types/tasks";
-import { FC } from "react";
+import { Dispatch, FC, SetStateAction } from "react";
 import Task from "./Task";
 
 interface TodoListProps {
   tasks: ITask[];
+  setTasks: Dispatch<SetStateAction<ITask[]>>;
+  setFilteredTasks: Dispatch<SetStateAction<ITask[]>>;
 }
 
-const TodoList: FC<TodoListProps> = ({ tasks }) => {
+const TodoList: FC<TodoListProps> = ({ tasks, setTasks, setFilteredTasks }) => {
   return (
     <div className='overflow-x-auto'>
       <table className='table w-full'>
@@ -20,7 +22,7 @@ const TodoList: FC<TodoListProps> = ({ tasks }) => {
         </thead>
         <tbody>
           {tasks.map((task) => (
-            <Task key={task.id} task={task} />
+            <Task key={task.id} task={task} setTasks={setTasks} setFilteredTasks={setFilteredTasks} />
           ))}
         </tbody>
       </table>

@@ -1,21 +1,21 @@
 "use client";
 
 import { ITask } from "@/types/tasks";
-import { FC, FormEventHandler, useState } from "react";
+import { Dispatch, FC, FormEventHandler, SetStateAction, useEffect, useState } from "react";
 import { FiEdit, FiTrash2 } from "react-icons/fi";
 import Modal from "./Modal";
-import { useRouter } from "next/navigation";
 import { deleteTodo, editTodo } from "../../../api";
-import { CATEGORIES, CATEGORY_COLORS, PRIORITIES, PRIORITY_COLORS } from "@/constants";
+import { CATEGORIES, CATEGORY_COLORS, PRIORITIES, PRIORITY_COLORS, PRIORITY_ORDER } from "@/constants";
 
 
 interface TaskProps {
   task: ITask;
+  setTasks: Dispatch<SetStateAction<ITask[]>>;
+  setFilteredTasks: Dispatch<SetStateAction<ITask[]>>;
 }
 
-const Task: FC<TaskProps> = ({ task }) => {
+const Task: FC<TaskProps> = ({ task, setTasks, setFilteredTasks }) => {
 
-  const router = useRouter();
 
   const categoryColorClass = CATEGORY_COLORS[task.category] || 'bg-gray-500';
   const priorityColorClass = PRIORITY_COLORS[task.priority] || "bg-gray-500";
@@ -33,15 +33,21 @@ const Task: FC<TaskProps> = ({ task }) => {
   const handleSubmitEditTodo: FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
     try {
-      await editTodo({
+      const updatedTask = await editTodo({
         id: editTaskInfo.id,
         desc: editTaskInfo.desc,
         category: editTaskInfo.category,
         priority: editTaskInfo.priority,
         completed: false,
       });
+      const updateAndSortTasks = (tasks: ITask[]) => {
+        const updatedTasks = tasks.map(task => task.id === updatedTask.id? updatedTask : task)
+        return updatedTasks.sort((a, b) => PRIORITY_ORDER[a.priority] - PRIORITY_ORDER[b.priority])
+      }
+      setTasks(prevTasks => updateAndSortTasks(prevTasks));
+      setFilteredTasks(prevTasks => updateAndSortTasks(prevTasks));
+
       setOpenModalEdit(false);
-      router.refresh();
     } catch (error) {
       console.error("Failed to edit task:", error);
       alert("Failed to edit task. Please try again.");
@@ -51,9 +57,9 @@ const Task: FC<TaskProps> = ({ task }) => {
   const handleDeleteTask = async (id: string) => {
     try {
       await deleteTodo(id);
+      setTasks(prevTasks => prevTasks.filter(t => t.id !== id));
+      setFilteredTasks(prevTasks => prevTasks.filter(t => t.id !== id));
       setOpenModalDeleted(false);
-      router.refresh();
-
     } catch (error) {
       console.error("Failed to delete task:", error);
       alert("Failed to delete task. Please try again.");
@@ -64,12 +70,17 @@ const Task: FC<TaskProps> = ({ task }) => {
     try {
       const updatedTask = {...task, completed:!task.completed };
       await editTodo(updatedTask);
-      router.refresh();
+      setTasks(prevTasks => prevTasks.map(t => t.id === updatedTask.id ? updatedTask : t));
+      setFilteredTasks(prevTasks => prevTasks.map(t => t.id === updatedTask.id ? updatedTask : t));
     } catch (error) {
       console.error("Failed to update task:", error);
     }
   }
 
+  useEffect(() => {
+    setTasks(prevTasks => [...prevTasks].sort((a, b) => PRIORITY_ORDER[a.priority] - PRIORITY_ORDER[b.priority]))
+    setFilteredTasks(prevTasks => [...prevTasks].sort((a, b) => PRIORITY_ORDER[a.priority] - PRIORITY_ORDER[b.priority]))
+  }, [setTasks, setFilteredTasks]);
   return (
     <tr key={task.id}>
       <td className='font-semibold text-md flex gap-2 items-center'>

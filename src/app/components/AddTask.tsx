@@ -2,15 +2,18 @@
 
 import { AiOutlinePlus } from "react-icons/ai";
 import Modal from "./Modal";
-import { FormEventHandler, useState } from "react";
-import { useRouter } from "next/navigation";
+import { Dispatch, FC, FormEventHandler, SetStateAction, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { addTodo } from "../../../api";
 import { CATEGORIES, PRIORITIES } from "@/constants";
+import { ITask } from "@/types/tasks";
 
+interface AddTaskProps {
+  setTasks: Dispatch<SetStateAction<ITask[]>>
+  setFilteredTasks: Dispatch<SetStateAction<ITask[]>>
+}
 
-const AddTask = () => {
-  const router = useRouter();
+const AddTask: FC<AddTaskProps> = ({ setTasks, setFilteredTasks }) => {
 
   const [modalOpen, setModalOpen] = useState<boolean>(false);
   const [newTaskDesc, setNewTaskDesc] = useState<string>("");
@@ -34,20 +37,23 @@ const AddTask = () => {
       alert("Please enter a description")
       return
     }
+
+    const newTask = {
+      id: uuidv4(),
+      desc: newTaskDesc,
+      category: newTaskCategory,
+      priority: newTaskPriority,
+      completed: false,
+    };
+
     try {
-      await addTodo({
-        id: uuidv4(),
-        desc: newTaskDesc,
-        category: newTaskCategory,
-        priority: newTaskPriority,
-        completed: false,
-      });
+      await addTodo(newTask);
+      setTasks(prevTasks => [...prevTasks, newTask]);
+      setFilteredTasks(prevTasks => [...prevTasks, newTask]);
       setNewTaskDesc("");
       setNewTaskCategory("");
       setNewTaskPriority("");
       setModalOpen(false);
-      router.refresh();
-
     } catch (error) {
       console.error("Failed to add task:", error);
       alert("Failed to add task. Please try again.");
