@@ -13,6 +13,8 @@ const TodoList: FC<TodoListProps> = ({ tasks }) => {
         <thead>
           <tr>
             <th>Tasks</th>
+            <th>Category</th>
+            <th>Priority</th>
             <th>Actions</th>
           </tr>
         </thead>

@@ -2,23 +2,48 @@
   "tasks": [
     {
       "id": "2",
-      "desc": "Run 34km"
+      "desc": "Run 34km",
+      "category": "Autre",
+      "priority": "Important - Not Urgent"
     },
     {
       "id": "7e7b770c-05c6-43ba-91ba-f5870fb9e976",
-      "desc": "new task"
+      "desc": "Go to the doctor",
+      "category": "Administratif",
+      "priority": "Not Important - Urgent"
     },
     {
       "id": "3358f6f7-d570-43ec-be7d-b537e7ed548c",
-      "desc": "Go to the beach"
+      "desc": "Go to the beach",
+      "category": "Hobbies",
+      "priority": "Not Important - Not Urgent"
     },
     {
       "id": "b538f44b-4c27-4d7d-88ce-e2a5fa717aec",
-      "desc": "Play violin"
+      "desc": "Play violin",
+      "category": "Maison",
+      "priority": "Important - Not Urgent"
     },
     {
-      "id": "53bb1ae9-157f-4164-b524-19850c6db344",
-      "desc": "Wesh alors"
+      "id": "7a48d570-a258-40e6-8550-d58e69b6bd4e",
+      "desc": "Work on nextJs",
+      "category": "Travail",
+      "priority": "Important - Urgent",
+      "completed": false
+    },
+    {
+      "id": "5baf102d-a995-4032-aa9d-5bf4c6fc0ec4",
+      "desc": "Manger des clous",
+      "category": "Sport",
+      "priority": "Important - Not Urgent",
+      "completed": false
+    },
+    {
+      "id": "246db802-493b-43cc-9110-8d7b497f9440",
+      "desc": "Faire les courses",
+      "category": "Shopping",
+      "priority": "Not Important - Not Urgent",
+      "completed": false
     }
   ]
 }
