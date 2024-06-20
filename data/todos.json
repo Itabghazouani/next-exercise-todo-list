@@ -12,26 +12,28 @@
       "desc": "Go to the doctor",
       "category": "Administratif",
       "priority": "Not Important - Urgent",
-      "completed": true
+      "completed": false
     },
     {
       "id": "3358f6f7-d570-43ec-be7d-b537e7ed548c",
-      "desc": "Go to the beach",
+      "desc": "Go to the shower",
       "category": "Hobbies",
-      "priority": "Not Important - Not Urgent"
+      "priority": "Not Important - Not Urgent",
+      "completed": true
     },
     {
       "id": "b538f44b-4c27-4d7d-88ce-e2a5fa717aec",
-      "desc": "Play violin",
+      "desc": "Play guitar",
       "category": "Maison",
-      "priority": "Important - Not Urgent"
+      "priority": "Important - Not Urgent",
+      "completed": false
     },
     {
       "id": "7a48d570-a258-40e6-8550-d58e69b6bd4e",
       "desc": "Work on nextJs",
       "category": "Travail",
       "priority": "Important - Urgent",
-      "completed": false
+      "completed": true
     },
     {
       "id": "5baf102d-a995-4032-aa9d-5bf4c6fc0ec4",

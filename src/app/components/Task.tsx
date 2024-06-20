@@ -38,7 +38,7 @@ const Task: FC<TaskProps> = ({ task }) => {
         desc: editTaskInfo.desc,
         category: editTaskInfo.category,
         priority: editTaskInfo.priority,
-        completed: editTaskInfo.completed,
+        completed: false,
       });
       setOpenModalEdit(false);
       router.refresh();
@@ -75,7 +75,7 @@ const Task: FC<TaskProps> = ({ task }) => {
       <td className='font-semibold text-md flex gap-2 items-center'>
         <input
           type="checkbox"
-          checked={editTaskInfo.completed}
+          checked={task.completed}
           onChange={() => toggleCompleted(task)} />
         <span className={task.completed ? "line-through" : ""}>{task.desc}</span>
       </td>
