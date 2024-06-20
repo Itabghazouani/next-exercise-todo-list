@@ -2,15 +2,17 @@
   "tasks": [
     {
       "id": "2",
-      "desc": "Run 34km",
+      "desc": "Run 24km",
       "category": "Autre",
-      "priority": "Important - Not Urgent"
+      "priority": "Important - Not Urgent",
+      "completed": true
     },
     {
       "id": "7e7b770c-05c6-43ba-91ba-f5870fb9e976",
       "desc": "Go to the doctor",
       "category": "Administratif",
-      "priority": "Not Important - Urgent"
+      "priority": "Not Important - Urgent",
+      "completed": true
     },
     {
       "id": "3358f6f7-d570-43ec-be7d-b537e7ed548c",

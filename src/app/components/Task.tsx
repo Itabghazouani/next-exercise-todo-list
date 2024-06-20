@@ -60,9 +60,25 @@ const Task: FC<TaskProps> = ({ task }) => {
     }
   };
 
+  const toggleCompleted = async (task: ITask) => {
+    try {
+      const updatedTask = {...task, completed:!task.completed };
+      await editTodo(updatedTask);
+      router.refresh();
+    } catch (error) {
+      console.error("Failed to update task:", error);
+    }
+  }
+
   return (
     <tr key={task.id}>
-      <td className='font-semibold text-md'>{task.desc}</td>
+      <td className='font-semibold text-md flex gap-2 items-center'>
+        <input
+          type="checkbox"
+          checked={editTaskInfo.completed}
+          onChange={() => toggleCompleted(task)} />
+        <span className={task.completed ? "line-through" : ""}>{task.desc}</span>
+      </td>
       <td>
         <span className={`text-white px-2 py-1 rounded-md ${categoryColorClass}`}>{task.category}</span>
       </td>
