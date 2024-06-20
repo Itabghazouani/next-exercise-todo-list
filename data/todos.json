@@ -2,11 +2,7 @@
   "tasks": [
     {
       "id": "2",
-      "desc": "Run 30km"
-    },
-    {
-      "id": "ab640453-bda0-47f6-bf6b-5773d078fb34",
-      "desc": "Go to the market"
+      "desc": "Run 34km"
     },
     {
       "id": "7e7b770c-05c6-43ba-91ba-f5870fb9e976",
@@ -19,6 +15,10 @@
     {
       "id": "b538f44b-4c27-4d7d-88ce-e2a5fa717aec",
       "desc": "Play violin"
+    },
+    {
+      "id": "53bb1ae9-157f-4164-b524-19850c6db344",
+      "desc": "Wesh alors"
     }
   ]
 }
