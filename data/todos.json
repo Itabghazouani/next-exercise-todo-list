@@ -48,13 +48,6 @@
       "category": "Shopping",
       "priority": "Not Important - Not Urgent",
       "completed": false
-    },
-    {
-      "id": "23f0efc6-49a5-4b52-82f0-e7e5baa7a20c",
-      "desc": "Make Money",
-      "category": "Travail",
-      "priority": "Important - Urgent",
-      "completed": false
     }
   ]
 }
