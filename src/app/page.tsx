@@ -1,11 +1,10 @@
 "use client"
 
 import { ITask } from "@/types/tasks";
-import { PRIORITY_ORDER } from "@/constants";
 import { getAllTodos } from "../../api";
-import { AddTask, TodoList } from "./components";
+import { AddTask, CategoryFilter, TodoList } from "./components";
 import { useEffect, useState } from "react";
-import CategoryFilter from "./components/CategoryFilter";
+
 
 const Home = () => {
 
@@ -30,9 +29,6 @@ const Home = () => {
       setFilteredTasks(tasks)
     }
   }, [selectedCategory, tasks])
-
-  // const sortedTasks = tasks.sort((a, b) => PRIORITY_ORDER[a.priority] - PRIORITY_ORDER[b.priority])
-  // ;
 
   return (
     <main className='max-w-4xl mx-auto mt-4'>
