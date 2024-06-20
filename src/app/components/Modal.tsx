@@ -2,7 +2,7 @@ import { FC, ReactNode } from "react"
 
 interface ModalProps {
   modalOpen: boolean;
-  setModalOpen: (open: boolean) => boolean | void;
+  setModalOpen: (modalOpen: boolean) => boolean | void;
   children: ReactNode;
 }
 

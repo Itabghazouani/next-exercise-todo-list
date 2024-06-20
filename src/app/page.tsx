@@ -1,7 +1,7 @@
 
 import { getAllTodos } from "../../api";
-import AddTask from "./components/AddTask";
-import TodoList from "./components/TodoList";
+import { AddTask, TodoList } from "./components";
+
 
 export default async function Home() {
   const tasks = await getAllTodos();
