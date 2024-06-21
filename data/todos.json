@@ -1,52 +1,52 @@
 {
   "tasks": [
     {
-      "id": "2",
-      "desc": "Run 44km",
-      "category": "Sport",
-      "priority": "Not Important - Urgent",
-      "completed": false
-    },
-    {
-      "id": "7e7b770c-05c6-43ba-91ba-f5870fb9e976",
-      "desc": "Go to the Med",
-      "category": "Maison",
-      "priority": "Important - Urgent",
-      "completed": false
-    },
-    {
-      "id": "3358f6f7-d570-43ec-be7d-b537e7ed548c",
-      "desc": "Go to the shower",
-      "category": "Hobbies",
-      "priority": "Not Important - Not Urgent",
-      "completed": true
-    },
-    {
-      "id": "b538f44b-4c27-4d7d-88ce-e2a5fa717aec",
-      "desc": "Play guitar",
-      "category": "Maison",
-      "priority": "Important - Not Urgent",
-      "completed": false
-    },
-    {
-      "id": "7a48d570-a258-40e6-8550-d58e69b6bd4e",
-      "desc": "Work on nextJs",
+      "id": "1d0efca3-fd7f-4859-b44e-40ac167f578d",
+      "desc": "Send email to Aicad",
       "category": "Travail",
       "priority": "Important - Urgent",
       "completed": true
     },
     {
-      "id": "5baf102d-a995-4032-aa9d-5bf4c6fc0ec4",
-      "desc": "Manger des clous",
-      "category": "Sport",
+      "id": "b8c9915c-66a4-406b-b241-5616892bf775",
+      "desc": "Implement Backend for TodoList",
+      "category": "Travail",
       "priority": "Important - Not Urgent",
       "completed": false
     },
     {
-      "id": "246db802-493b-43cc-9110-8d7b497f9440",
-      "desc": "Faire les courses",
+      "id": "0260cd29-d7cd-4caf-b4c1-3db7a8fe7964",
+      "desc": "Clean terrasse",
+      "category": "Maison",
+      "priority": "Not Important - Urgent",
+      "completed": false
+    },
+    {
+      "id": "ecc96b61-5eaf-4238-a5ed-f88788f1d342",
+      "desc": "Go to the gym",
+      "category": "Sport",
+      "priority": "Not Important - Urgent",
+      "completed": false
+    },
+    {
+      "id": "ce695e72-c30b-4313-850c-6d9946e982c2",
+      "desc": "Laundry",
+      "category": "Maison",
+      "priority": "Not Important - Urgent",
+      "completed": false
+    },
+    {
+      "id": "6ddd283e-c755-4436-9e7d-ec4038a5a532",
+      "desc": "Check phone case for new phone",
       "category": "Shopping",
       "priority": "Not Important - Not Urgent",
+      "completed": false
+    },
+    {
+      "id": "341f7ded-b5d8-49ae-b888-abd6c24d65b2",
+      "desc": "Grocery for Bbq",
+      "category": "Shopping",
+      "priority": "Important - Not Urgent",
       "completed": false
     }
   ]

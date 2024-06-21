@@ -81,10 +81,9 @@ export const deleteTodo = async (id: string): Promise<void> => {
 
 export const deleteAllTodos = async (): Promise<void> => {
   try {
-    const res = await fetch(`${baseUrl}/tasks`, { method: "DELETE" });
-    if (!res.ok) {
-      throw new Error(`HTTP error! status ${res.status}`);
-    }
+    const todos = await getAllTodos();
+    const deletePromises = todos.map(todo => deleteTodo(todo.id));
+    await Promise.all(deletePromises);
   } catch (error) {
     console.error("Failed to delete todos:", error);
     throw error;
